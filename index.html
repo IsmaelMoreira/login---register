@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Adiciona o arquivo CSS externo -->
     <link rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
@@ -89,7 +90,6 @@
         <div class="content-form">
           <h5 style="margin-bottom: 0;">CADASTRE-SE OUTRAS FORMAS</h5>
           <div class="social-media" style="margin-bottom: 10px;">
-
             <ul class="list-social-media" style="margin-top: 0; padding: 0;">
               <a class="link-social-media" href="#"
                 style="text-decoration: none;">
@@ -179,7 +179,6 @@
         <div class="content-form">
           <h5 style="margin-bottom: 0;">FAÇA LOGIN DE OUTRAS FORMAS</h5>
           <div class="social-media" style="margin-bottom: 10px;">
-
             <ul class="list-social-media" style="margin-top: 0; padding: 0;">
               <a class="link-social-media" href="#"
                 style="text-decoration: none;">
@@ -207,29 +206,23 @@
             <a href="#" class="login-page" onclick="toggleForms()">Faça o
               Cadastro!</a>
           </div>
+        </div>
+      </form>
+    </div>
 
-        </form>
-      </div>
-      <script>
-        // Definição da função no escopo global
-        function toggleForms() {
-          var signupForm = document.getElementById("signup-form");
-          var loginForm = document.getElementById("login-form");
-    
-          if (signupForm.style.display === "none") {
-            signupForm.style.display = "flex";
-            loginForm.style.display = "none";
-            loginForm.classList.remove("active-form");
-            signupForm.classList.add("active-form");
-          } else {
-            signupForm.style.display = "none";
-            loginForm.style.display = "flex";
-            signupForm.classList.remove("active-form");
-            loginForm.classList.add("active-form");
-          }
-        }
-      </script>
-
-      <script src="index.js"></script>
-    </body>
-  </html>
+    <script>
+    function toggleForms() {
+      var signupForm = document.getElementById("signup-form");
+      var loginForm = document.getElementById("login-form");
+      signupForm.classList.toggle("zoomIn");
+      loginForm.classList.toggle("zoomIn");
+      setTimeout(function() {
+        signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
+        loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
+        signupForm.classList.remove("zoomIn");
+        loginForm.classList.remove("zoomIn");
+      }, 1000);
+    }
+  </script>
+  </body>
+</html>

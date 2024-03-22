@@ -5,6 +5,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
+  overflow: hidden;
 }
 
 @keyframes gradient {
@@ -37,11 +38,26 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: opacity 0.5s ease; /* Adiciona uma transição de opacidade */
 }
 
 .active-form {
-  z-index: 2; /* Coloca sobre o outro formulário */
+  z-index: 2;
+  width: 400px;
+  /* Coloca sobre o outro formulário */
+  opacity: 0; /* Inicia com opacidade 0 */
+  animation: fadeIn 0.5s ease forwards; /* Animação para suavizar a transição */
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Começa com opacidade 0 */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 */
+  }
+}
+
 
 .center-form {
   justify-content: center;
@@ -49,8 +65,8 @@ body {
   flex-direction: column;
   gap: 8px;
   align-items: center;
-  width: 100%;
-  font-family: 'Montserrat';
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 0;
 }
 
@@ -230,12 +246,14 @@ button:hover .button-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 h5 {
   margin-top: 0;
   margin-bottom: 10px;
 }
+
 .list-social-media {
   display: flex;
   list-style-type: none;
@@ -256,15 +274,48 @@ h5 {
   line-height: 35px;
   text-align: center;
   color: #ffffff;
-  transition: background-color 0.2s;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 
 .item-social-media:hover {
-  background-color: #28293600;
-  color: #ffffffa8;
+  background-color: rgba(40, 41, 54, 0);
+  color: rgba(255, 255, 255, 0.8);
   border-color: #ffffff;
 }
 
 .login-page {
-  color:#fff
+  color: #fff;
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
